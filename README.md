@@ -11,7 +11,7 @@ AWS cloud computing (S3, EC2),
 Linux based SSH commands.
 
 ## Credits:
-The project is demonstrated by Tuplespectra on his Youtube channel [https://www.youtube.com/watch?v=uhQ54Dgp6To&t=1703s]. A big tank you!
+The project is demonstrated by Tuplespectra on his Youtube channel. A big tank you!
 
 So let us begin!
 
@@ -26,8 +26,17 @@ So let us begin!
 1.  Run airflow standalone, this will give us username and password. Now open a new tab in browser and copy paste the Public IP4 DNS address (you can get this from AWS instance home page) and type in you port name seperated by colon. You will be shown Airflow user interface, which can be logged in using username and password.
 2.  Open another terminal window from your EC2 machine. Run jupyter notebook, copy paste the IP address(Public IPv4) seperated by port no. in another browser window. Again use the credentials to log in. Jupyter notebook is used to easily write python code and for user friendly interface. In the YouTube video however he has used VS code. Anything is fine, its upto your choice.
 ## Step 3: Setting up AWS S3 Bucket:
-1. 
-## Step 3: Start coding!
+1. Set up a new S3 bucket.
+2. Create IAM role to your EC2 and S3 accounts - which basically give free access for EC2 to dump files in S3.
+3. Generate access key for S3 bucket.
+4. Install AWS CLI and use the access code and secret key to get the secret token.
+## Step 4: Generate API key from open weather website: 
+You can go this link to generate one - [https://home.openweathermap.org/api_keys]
+## Step 5: Start coding!
 1.  Once you have opened jupyter notebook, create a new folder in airflow directory, inside this folder create a python file and start writing the code to set up dag and create tasks.
-2.  In Airflow home page you will be seeing a new dag created. Now run this dag, resolve the bugs and voila! 
+2.  In Airflow home page you will be seeing a new dag created. Which has 3 tasks: 1. checking whether the HTTP sensor is able to communicate with the website. 2. Extracting the data. 3. Transforming and loading it into S3 bucket.
+3.  Create a new connection in Airflow, which will connect with the open weather website.
+4.  After the data is transformed, we can save it as csv file in S3, by passing the location and aws credentials.
+5.  Now run this dag, resolve the bugs and voila! You have successfully created an entire ETL pipeline.
+6.  You will be seeing a csv file in your S3 bucket.
 
