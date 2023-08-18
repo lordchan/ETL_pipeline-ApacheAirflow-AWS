@@ -50,12 +50,11 @@ So let us begin!
 ## Step 4: Generate API key from open weather website: 
 You can go this link to generate one - [https://home.openweathermap.org/api_keys]
 ## Step 5: Start coding!
-1.  Once you have opened jupyter notebook, create a new folder in airflow directory, inside this folder create a python file and start writing the code to set up dag and create tasks.
+1.  Once you have opened jupyter notebook, create a new folder in airflow directory, inside this folder create a python file and start writing the code to set up dag and create tasks. Make sure the location name of the folder in airflow.cfg file is same as your folder name.
 2.  In Airflow home page you will be seeing a new dag created. Which has 3 tasks: 1. checking whether the HTTP sensor is able to communicate with the website. 2. Extracting the data. 3. Transforming and loading it into S3 bucket.
 3.  Create a new connection in Airflow, which will connect with the open weather website.
     Go to Airflow home page>admin>connections
-    ![Screenshot 2023-08-18 191136](https://github.com/lordchan/ETL_pipeline-ApacheAirflow-AWS/assets/65250505/71b6adc5-90df-49e8-b66e-eabb086b2b08)
-    Create a new connection like this
+    Create a new connection will look like this
     ![Screenshot 2023-08-18 192925](https://github.com/lordchan/ETL_pipeline-ApacheAirflow-AWS/assets/65250505/3cd45b6b-39a6-4007-b24d-30724b6feb08)
 4. The HTTP connection endpoint is written in the dag code which is in the form
    https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
@@ -67,4 +66,8 @@ You can go this link to generate one - [https://home.openweathermap.org/api_keys
 
  The Final DAG workflow will look like this:
  ![Screenshot 2023-08-18 193616](https://github.com/lordchan/ETL_pipeline-ApacheAirflow-AWS/assets/65250505/4c521129-9512-4e9c-ba91-3fbd261190d7)
+
+ The data that we got in csv format:
+ ![Screenshot 2023-08-18 194238](https://github.com/lordchan/ETL_pipeline-ApacheAirflow-AWS/assets/65250505/7969c5f7-5a7b-42e6-9434-e948f4f9bab5)
+
 
